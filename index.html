@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AVI Admin Dashboard | Nepal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-100">
+
+<!-- MOBILE OVERLAY -->
+<div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar"
+  class="fixed top-0 left-0 z-40 h-screen w-64 bg-slate-950 text-slate-200
+         transform transition-transform lg:translate-x-0">
+
+  <!-- LOGO -->
+  <div class="flex items-center justify-between px-4 py-4 border-b border-slate-800">
+    <h1 id="sidebarLogoText" class="text-xl font-bold text-blue-500">AVI Admin</h1>
+    <button id="sidebarToggle" class="hidden lg:flex items-center gap-2 text-sm">
+      <i data-lucide="chevron-left" id="toggleIconOpen"></i>
+      <i data-lucide="chevron-right" id="toggleIconClosed" class="hidden"></i>
+      <span class="menu-text">Collapse</span>
+    </button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="sidebar-nav-items px-3 py-4 space-y-2 overflow-y-auto h-[calc(100%-80px)]">
+    <a class="menu-item active" href="#"><i data-lucide="layout-dashboard"></i><span class="menu-text">Dashboard</span></a>
+    <a class="menu-item" href="#"><i data-lucide="shopping-cart"></i><span class="menu-text">Orders</span></a>
+    <a class="menu-item" href="#"><i data-lucide="package"></i><span class="menu-text">Products</span></a>
+    <a class="menu-item" href="#"><i data-lucide="users"></i><span class="menu-text">Customers</span></a>
+    <a class="menu-item" href="#"><i data-lucide="store"></i><span class="menu-text">Sellers</span></a>
+    <a class="menu-item" href="#"><i data-lucide="bar-chart-3"></i><span class="menu-text">Reports</span></a>
+    <a class="menu-item" href="#"><i data-lucide="truck"></i><span class="menu-text">Delivery</span></a>
+    <a class="menu-item" href="#"><i data-lucide="credit-card"></i><span class="menu-text">Payments</span></a>
+    <a class="menu-item" href="#"><i data-lucide="settings"></i><span class="menu-text">Settings</span></a>
+  </nav>
+</aside>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent" class="lg:ml-64 min-h-screen transition-all">
+
+  <!-- TOP BAR -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow">
+    <button id="mobileMenuButton" class="lg:hidden">
+      <i data-lucide="menu"></i>
+    </button>
+
+    <h2 class="text-xl font-semibold">Dashboard</h2>
+
+    <!-- PROFILE -->
+    <div class="relative">
+      <button id="profileButton" class="flex items-center gap-2">
+        <img src="https://placehold.co/40x40" class="rounded-full">
+        <span class="hidden sm:block text-sm font-medium">Admin</span>
+      </button>
+
+      <!-- DROPDOWN -->
+      <div id="profileDropdown"
+           class="absolute right-0 mt-3 w-40 bg-white rounded-lg shadow hidden">
+        <a href="#" class="block px-4 py-2 hover:bg-slate-100">Profile</a>
+        <a href="#" id="logoutButton" class="block px-4 py-2 hover:bg-slate-100 text-red-600">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD CONTENT -->
+  <main class="p-6 space-y-6">
+
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="stat-card">
+        <p class="text-sm text-slate-500">Total Sales</p>
+        <p class="text-2xl font-bold">Rs. 12,50,000</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-sm text-slate-500">New Orders</p>
+        <p class="text-2xl font-bold">1,256</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-sm text-slate-500">Customers</p>
+        <p class="text-2xl font-bold">42,300</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-sm text-slate-500">Delivered</p>
+        <p class="text-2xl font-bold">1,132</p>
+      </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-xl shadow lg:col-span-2 h-[320px]">
+        <h3 class="font-semibold mb-4">Weekly Sales (Sun–Sat)</h3>
+        <canvas id="salesChart"></canvas>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow h-[320px]">
+        <h3 class="font-semibold mb-4">Top Categories</h3>
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- CUSTOM JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
