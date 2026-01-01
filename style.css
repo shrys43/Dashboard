@@ -1,0 +1,203 @@
+/* ===============================
+   GLOBAL
+================================ */
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    background-color: #f1f5f9;
+}
+
+/* ===============================
+   CUSTOM SCROLLBAR
+================================ */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* ===============================
+   SIDEBAR
+================================ */
+#sidebar {
+    background-color: #020617;
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#mainContent {
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar-nav-items::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-nav-items {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Sidebar menu items */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0.6rem;
+    color: #cbd5f5;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+.menu-item.active {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* ===============================
+   PROFILE DROPDOWN
+================================ */
+#profileDropdown {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+/* ===============================
+   ICON STYLING
+================================ */
+.menu-item svg,
+.modal-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    stroke-width: 1.5;
+}
+
+/* ===============================
+   DASHBOARD STAT CARDS
+================================ */
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+/* ===============================
+   TABLES (Orders / Products)
+================================ */
+.table-container {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    overflow-x: auto;
+}
+
+.table-header {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #334155;
+}
+
+.table-row:hover {
+    background-color: #f1f5f9;
+}
+
+/* ===============================
+   STATUS BADGES
+================================ */
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge-warning {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.badge-info {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.badge-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ===============================
+   MODALS
+================================ */
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.55);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* ===============================
+   BUTTONS
+================================ */
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #334155;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
